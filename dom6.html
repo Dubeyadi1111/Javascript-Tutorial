@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Project 1</title>
+</head>
+<body>
+    <div style="margin-bottom: 10px;">
+        <button onclick="displaymaleStudents()">Male Students</button>
+        <button onclick="displayfemaleStudents()">Female Students</button>
+        <button onclick="displayStudents(students)">All Students</button>
+    </div>
+    <div>
+        <table border="1px solid black" style="border-collapse: collapse;" >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>AGE</th>
+                    <th>GENDER</th>
+                    <th>E-Mail</th>
+                    <th>ADDRESS</th>
+                </tr>
+            </thead>
+            <tbody id="display">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let students = [
+            {id:10, name:"Aditya", age:25, gender:"Male", email:"Max@gmail.com", address:"Hydrabad"},
+            {id:11, name:"Abhisek", age:25, gender:"Male", email:"Max@gmail.com", address:"Bengluru"},
+            {id:12, name:"vinay", age:25, gender:"Male", email:"Max@gmail.com", address:"Pune"},
+            {id:13, name:"sunita", age:25, gender:"female", email:"Max@gmail.com", address:"Mumbai"},
+            {id:14, name:"varun", age:25, gender:"Male", email:"Max@gmail.com", address:"Delhi"},
+            {id:15, name:"pallavi", age:25, gender:"female", email:"Max@gmail.com", address:"Kerla"},
+            {id:16, name:"Ranjan", age:25, gender:"Male", email:"Max@gmail.com", address:"Hydrabad"},
+            {id:17, name:"Vishal", age:25, gender:"Male", email:"Max@gmail.com", address:"Noida"},
+            {id:18, name:"Asish", age:25, gender:"ale", email:"Max@gmail.com", address:"Ranchi"},
+            {id:19, name:"Laxmi", age:25, gender:"female", email:"Max@gmail.com", address:"Bengluru"},
+        ]
+
+        let display = document.getElementById("display");
+        
+
+        function displayStudents(arr){
+            let str ="";
+            arr.forEach(element => {
+                str += `<tr>
+                    <td>${element.id}</td>
+                    <td>${element.name}</td>
+                    <td>${element.age}</td>
+                    <td>${element.gender}</td>
+                    <td>${element.email}</td>
+                    <td>${element.address}</td>
+                    </tr>
+                `
+            });
+            display.innerHTML = str
+        }
+        displayStudents(students);
+
+        function displayfemaleStudents() {
+            let females = students.filter(student => student.gender === "female");
+            displayStudents(females); 
+        }
+        
+        function displaymaleStudents(){
+            let males = students.filter(student => student.gender === "Male");
+            displayStudents(males);
+        }
+
+    </script>
+</body>
+</html>

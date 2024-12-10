@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+    <!-- Js Modal -->
+    <section class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-5 m-auto hidden" id="login-modal">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h2>LogIn Here
+
+                            <button class="float-end btn-cl" id="close-btn">
+                                <i class="bi bi-x-circle"></i>
+                            </button>
+                        </h2>
+
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group mb-2">
+                                <input type="text" placeholder="Enter Username/Email" class="form-control">
+                            </div>
+                            <div class="form-group mb-2">
+                                <input type="password" placeholder="Enter Password" class="form-control">
+                            </div>
+                            <div class="form-group mb-2">
+                                <input type="submit" class="btn btn-dark">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script Code -->
+    <script>
+        let logInModalEl = document.querySelector('#login-modal');
+        let logInModalBtn = document.querySelector('#login-btn');
+        let logInModalCloseBtn = document.querySelector('#close-btn');
+
+        logInModalBtn.addEventListener('click', function () {
+            logInModalEl.classList.remove('hidden');
+        })
+
+        logInModalCloseBtn.addEventListener('click', function () {
+            logInModalEl.classList.add('hidden');
+        })
+
+
+
+        document.addEventListener('keydown',function(e)
+        {
+            if(e.key=="Escape"&&!(logInModalEl.classList.contains('hidden')))
+            {
+                logInModalEl.classList.add('hidden');
+            }
+        })
+    </script>
+</body>

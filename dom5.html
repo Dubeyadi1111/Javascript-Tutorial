@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin-bottom: 10px;">
+        <button onclick="displaymaleStudents()">Male Students</button>
+        <button onclick="displayfemaleStudents()">Female Students</button>
+        <button onclick="displayStudents(students)">All Students</button>
+    </div>
+
+    <table border = 1 style="border-collapse:collapse;" cellpadding="20">
+        <thead>
+            <tr >
+                <th>ID</th>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>GENDER</th>
+                <th>EMAIL</th>
+                <th>ADDRESS</th>
+            </tr>
+        </thead>
+        <tbody id="display">
+
+        </tbody>
+    </table>
+    <div id="showDetails">
+
+    </div>
+    <script>
+        let students=[
+            {id: 10 ,name:"A", age:25 , gender:"Male",email:"a@@g.com", address:"Delhi"},
+            {id: 11 ,name:"B", age:25 , gender:"Female",email:"a@@g.com", address:"Pune"},
+            {id: 12 ,name:"C", age:25 , gender:"Male",email:"a@@g.com", address:"Hydrabad"},
+            {id: 13 ,name:"D", age:25 , gender:"Female",email:"a@@g.com", address:"Benagluru"},
+            {id: 14 ,name:"E", age:25 , gender:"Female",email:"a@@g.com", address:"delhi"},
+            {id: 15 ,name:"F", age:25 , gender:"Male",email:"a@@g.com", address:"delhi"},
+            {id: 16 ,name:"G", age:25 , gender:"Female",email:"a@@g.com", address:"delhi"},
+            {id: 17 ,name:"H", age:25 , gender:"Male",email:"a@@g.com", address:"delhi"},
+            {id: 18 ,name:"I", age:25 , gender:"Female",email:"a@@g.com", address:"delhi"},
+            {id: 19 ,name:"J", age:25 , gender:"Male",email:"a@@g.com", address:"delhi"},
+        ]
+        let display = document.getElementById("display");
+
+        function displayStudents(arr){
+            let str ="";
+            arr.forEach(element => {
+                str += `<tr onclick="displayDetails(${ele.id})">
+                    <td>${element.id}</td>
+                    <td>${element.name}</td>
+                    <td>${element.age}</td>
+                    <td>${element.gender}</td>
+                    <td>${element.email}</td>
+                    <td>${element.address}</td>
+                    </tr>
+                `
+            });
+            display.innerHTML = str
+        }
+        displayStudents(students);
+
+        // function displayfemaleStudents() {
+        //     let females = students.filter(student => student.gender === "Female");
+        //     displayStudents(females); 
+        // }
+        
+        // function displaymaleStudents(){
+        //     let males = students.filter(student => student.gender === "Male");
+        //     displayStudents(males);
+        // }
+        let maleBtn=document.getElementById("male")
+        MaleBtn.addEventListener("click",()=> {
+            let maleStudents=students.filter(element=> {
+                if (element.gender=="male"){
+                    return element
+                }
+            })
+            displayStudents(maleStudents)
+        })
+         
+        let Female=document.getElementById("Female")
+        Female.addEventListener("click",()=> {
+            let Female=students.filter(element=> {
+                if (element.gender=="Female"){
+                    return element
+                }
+            })
+            displayStudents(FemaleStudents)
+        })
+        
+        let allBtn=document.querySelector("#all")
+        allBtn=addEventListener("click",()=>{
+            displayStudents(students)
+
+        })
+
+         let showDetails = document.querySelector("#showDetails")
+         function displayDetails(id){
+            //console.log(id);
+            let student=students.find(ele => ele.id == id)
+            //consle.log(students);
+            let str =""
+            for (let key in student) {
+                str+='<li>${key}===$(student[key])</li>'
+            }
+            showDetails.innerHTML=str
+        }
+        
+
+    </script>
+</body>
+</html>

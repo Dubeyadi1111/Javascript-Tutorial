@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 9
+        let temp=num;
+        num=num*num;
+        let sum=0;
+        while(num>0)
+        { let rem=num%10;
+            sum+=rem;
+            num=Math.trunc(num%10);
+            if (temp==sum)
+            console.log("Neon Number")
+            else
+            console.log("Not a Neon Number");
+            
+        }
+    </script>
+</body>
+</html> 

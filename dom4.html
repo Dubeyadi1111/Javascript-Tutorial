@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 id="display">Welcome Message</h1>
+        <button id="clickBtn">Click here</button>
+    </div>
+    <script>
+        let displayTag = document.getElementById('display');
+        let clickBtn = document.getElementById('clickBtn');
+         
+        
+         clickBtn.addEventListner('click',function(){
+            displayTag.textContext="Hello";
+         });
+    </script>
+</body>
+</html>

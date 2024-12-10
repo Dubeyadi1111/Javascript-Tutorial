@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style> .hidden </style>
+<body>
+    <h1 id="msg">HELLO WORLD!!!</h1>
+    <button id="btn">SHOW MSG</button>
+    <button id="clr" class="hidden">SUB</button>
+    <script>
+       let message="JAVASRIPT IS THE BEST PROGRAMMING LANGUAGE"
+       let msgTag=document.getElementById("msg")
+       let btnTag = document.querySelector("#btn")
+       let clrBtn=document.getElementById("clr")
+
+       btnTag.addEventListener("click",()=>{
+        setTimeout(()=>{
+           msgTag.innerHTML=message
+           clrBtn.classList.remove("hidden") 
+        },2000)
+    })
+
+        clrBtn.addEventListener("click",() =>{
+            setInterval(()=>{
+                /* let color = msgTag.style.color
+                if(color=="blue"){
+                    msgTag.style.color="red"
+                } else {
+                    msgTag.style.color="blue"
+                } */
+                 let red = Math.trunc(Math.random()*255)
+                 let green = Math.trunc(Math.random()*255)
+                 let blue = Math.trunc(Math.random()*255)
+                 msgTag.style.color='rgb(${red},${green},${blue})'
+        },1000)
+    })
+        
+       
+       
+       
+    </script>
+</body>
+</html>
